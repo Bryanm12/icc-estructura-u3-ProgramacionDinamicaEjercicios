@@ -1,7 +1,10 @@
 package Ejercicio;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /*
  * Implementa un método para devolver todos los subconjuntos de un arreglo de enteros
@@ -29,7 +32,28 @@ import java.util.List;
  */
 public class EjercicioUno {
 
-    // List<List<Integer>> subsets(List<Integer> set) {
+    public List<List<Integer>> subsets(List<Integer> set) {
+        List<List<Integer>> subsets  = new ArrayList<List<Integer>>();
+        subsets.add(new ArrayList<Integer>());
+        for(Integer x:set){
+            addSetByElement(x,subsets);
+        }
+        
+        return subsets;
+        
+    }
 
-    // }
+    public void addSetByElement(Integer Element, List<List<Integer>> subsets){
+        int currentSize = subsets.size();
+        for(int i =0; i<currentSize;i++){
+            List<Integer> newSubset = new ArrayList<Integer>(subsets.get(i));
+            newSubset.add(Element);
+            subsets.add(newSubset);
+        }
+    }
+    
+    
+    
+    
+    
 }
